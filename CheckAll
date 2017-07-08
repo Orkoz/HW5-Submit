@@ -1,0 +1,27 @@
+#! /bin/bash
+cd ../templates
+
+../submit/airport < in_1.txt 1> in_1_result.txt 2> err_1_result.txt
+../submit/airport < in_2.txt 1> in_2_result.txt 2> err_2_result.txt
+../submit/airport < t0_CheckInputs.txt 1> t0_CheckInputs_result.txt 2> t0_CheckInputs_err_result.txt
+../submit/airport < t1_Bad_Depart.txt 1> t1_Bad_Depart_result.txt 2> t1_Bad_Depart_err_result.txt
+../submit/airport < t2_CheckRunwayDestroy.txt 1> t2_CheckRunwayDestroy_result.txt 2> t2_CheckRunwayDestroy_err_result.txt
+../submit/airport < t4_Bad_Depart2.txt 1> t4_Bad_Depart2_result.txt 2> t4_Bad_Depart2_err_result.txt
+
+diff out_1.txt in_1_result.txt
+diff err_1.txt err_1_result.txt
+
+diff out_2.txt in_2_result.txt
+diff err_2.txt err_2_result.txt
+
+diff t0_CheckInputs_out.txt t0_CheckInputs_result.txt
+diff t0_CheckInputs_err.txt t0_CheckInputs_err_result.txt
+
+diff t1_Bad_Depart_out.txt t1_Bad_Depart_result.txt
+diff t1_Bad_Depart_err.txt t1_Bad_Depart_err_result.txt
+
+diff t2_CheckRunwayDestroy_out.txt t2_CheckRunwayDestroy_result.txt
+diff t2_CheckRunwayDestroy_err.txt t2_CheckRunwayDestroy_err_result.txt
+
+diff t4_Bad_Depart2_out.txt t4_Bad_Depart2_result.txt
+diff t4_Bad_Depart2_err.txt t4_Bad_Depart2_err_result.txt
